@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 
 export function RecipeForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [image, setImage] = useState<File | null>(null); // State to hold the image file
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,8 +27,8 @@ export function RecipeForm() {
 
         <div>
           <Label htmlFor="description">Description</Label>
-          <Textarea 
-            id="description" 
+          <Textarea
+            id="description"
             placeholder="Brief description of your recipe"
             required
           />
@@ -40,11 +41,11 @@ export function RecipeForm() {
           </div>
           <div>
             <Label htmlFor="servings">Servings</Label>
-            <Input 
-              id="servings" 
-              type="number" 
+            <Input
+              id="servings"
+              type="number"
               placeholder="Number of servings"
-              required 
+              required
             />
           </div>
           <div>
@@ -55,8 +56,8 @@ export function RecipeForm() {
 
         <div>
           <Label htmlFor="ingredients">Ingredients</Label>
-          <Textarea 
-            id="ingredients" 
+          <Textarea
+            id="ingredients"
             placeholder="Enter ingredients (one per line)"
             required
             rows={6}
@@ -65,11 +66,26 @@ export function RecipeForm() {
 
         <div>
           <Label htmlFor="instructions">Instructions</Label>
-          <Textarea 
-            id="instructions" 
+          <Textarea
+            id="instructions"
             placeholder="Enter cooking instructions (one step per line)"
             required
             rows={8}
+          />
+        </div>
+
+        {/* New Image Input Section */}
+        <div>
+          <Label htmlFor="image">Upload Image</Label>
+          <Input
+            id="image"
+            type="file"
+            accept="image/*"
+            onChange={(e) => {
+              if (e.target.files) {
+                setImage(e.target.files[0]); // Set the selected image file
+              }
+            }}
           />
         </div>
       </div>
