@@ -9,16 +9,47 @@ import { Label } from "@/components/ui/label";
 export function RecipeForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [image, setImage] = useState<File | null>(null); // State to hold the image file
+  const [error, setError] = useState<string | null>(null); // State to hold error messages
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null); // Reset error state
+
+    // Basic validation
+    const title = (e.target as any).title.value;
+    const description = (e.target as any).description.value;
+    const cookTime = (e.target as any).cookTime.value;
+    const servings = (e.target as any).servings.value;
+    const difficulty = (e.target as any).difficulty.value;
+    const ingredients = (e.target as any).ingredients.value;
+    const instructions = (e.target as any).instructions.value;
+
+    if (
+      !title ||
+      !description ||
+      !cookTime ||
+      !servings ||
+      !difficulty ||
+      !ingredients ||
+      !instructions ||
+      !image
+    ) {
+      setError("All fields are required, including an image upload.");
+      setIsSubmitting(false);
+      return;
+    }
+
     // Handle form submission logic here
+    // For example, you might want to send the data to an API
+
     setIsSubmitting(false);
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
+      {error && <div className="text-red-500">{error}</div>}{" "}
+      {/* Display error message */}
       <div className="space-y-4">
         <div>
           <Label htmlFor="title">Recipe Title</Label>
@@ -74,7 +105,6 @@ export function RecipeForm() {
           />
         </div>
 
-        {/* New Image Input Section */}
         <div>
           <Label htmlFor="image">Upload Image</Label>
           <Input
@@ -86,10 +116,10 @@ export function RecipeForm() {
                 setImage(e.target.files[0]); // Set the selected image file
               }
             }}
+            required
           />
         </div>
       </div>
-
       <Button type="submit" disabled={isSubmitting} className="w-full">
         {isSubmitting ? "Submitting..." : "Submit Recipe"}
       </Button>
