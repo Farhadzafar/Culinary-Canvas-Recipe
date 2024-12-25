@@ -2,7 +2,7 @@
 
 A modern recipe sharing platform built with Next.js, TypeScript, and Tailwind CSS. Discover, share, and explore delicious recipes from around the world.
 
-![Culinary Canvas](./Screenshot%202024-12-25%20184413.png)
+![Culinary Canvas](https://raw.githubusercontent.com/Farhadzafar/Culinary-Canvas-Recipe/refs/heads/main/Screenshot%202024-12-25%20184413.png)
 
 ## ✨ Features
 
@@ -105,6 +105,13 @@ npm run dev
 - `npm run build` - Build for production
 - `npm start` - Start production server
 - `npm run lint` - Run ESLint
+
+## 👤 Author
+
+**Farhad Ahmad "Zafari"**
+
+- GitHub: [@Farhmad Ahmad Zafari](https://github.com/Farhadzafar)
+- LinkedIn: [@Farhad Ahmad Zafari](https://www.linkedin.com/in/farhad-zafari-285551279/)
 
 ## 🤝 Contributing
 
