@@ -2,7 +2,7 @@
 
 A modern recipe sharing platform built with Next.js, TypeScript, and Tailwind CSS. Discover, share, and explore delicious recipes from around the world.
 
-![Culinary Canvas](https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&q=80&w=2000)
+![Culinary Canvas](./Screenshot%202024-12-25%20184413.png)
 
 ## ✨ Features
 
@@ -60,6 +60,7 @@ npm run dev
 ├── lib/                # Utility functions
 ├── public/             # Static assets
 └── types/              # TypeScript types
+                🔥🔥🔥🔥🔥
 ```
 
 ## 🌟 Key Features Explained
